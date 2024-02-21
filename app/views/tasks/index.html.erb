@@ -1,0 +1,37 @@
+<div class="p-5 w-75">
+  <h1 class="mb-4 pb-2 border-bottom">
+    Tasks
+  </h1>
+
+  <div class="mb-5">
+    <ul class="list-inline">
+      <% @tasks.each do |task| %>
+        <li>
+          <% if task.completed %>
+            ☑️ <%= link_to task.title, task_path(task), class: "ps-2 pe-3 link-success link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2-hover" %>
+            <%=
+              link_to "(Delete)",
+              task_path(task),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "ps-1 link-secondary link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2-hover"
+            %>
+          <% else %>
+            ❌ <%= link_to task.title, task_path(task), class: "ps-2 pe-3 link-success link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2-hover" %>
+            <%=
+              link_to "(Delete)",
+              task_path(task),
+              data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
+              class: "ps-1 link-secondary link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2-hover"
+            %>
+          <% end %>
+        </li>
+      <% end %>
+    <ul>
+  </div>
+
+  <div class="pt-2 border-top">
+    <p>
+      <%= link_to "+ Add a new task", tasks_new_path, class: "link-success link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2-hover"%>
+    </p>
+  </div>
+</div>

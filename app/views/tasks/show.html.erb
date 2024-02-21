@@ -1,0 +1,37 @@
+<div class="p-5 w-75">
+  <h1 class="mb-2 pb-2 border-bottom">
+    <%= @task.title %>
+  </h1>
+
+  <div class="d-flex justify-content-end">
+    <p>
+      <%= link_to "✎ Edit this task", edit_path, class: "link-secondary link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2-hover"%>
+    </p>
+  </div>
+
+  <div class="mt-3 mb-5">
+
+    <div class="bg-success-subtle border border-success py-4 ps-4 mb-3">
+      <p class="m-0">
+        <%= @task.details %>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        <% if @task.completed %>
+          ☑️ This task is completed
+        <% else %>
+          ❌ This task is not completed yet
+        <% end %>
+      </p>
+    </div>
+
+  </div>
+
+  <div class="pt-2 border-top">
+    <p>
+      <%= link_to "↺ Back to lists", tasks_path, class: "link-success link-underline-opacity-0 link-underline-opacity-100-hover link-offset-2-hover" %>
+    </p>
+  </div>
+</div>
